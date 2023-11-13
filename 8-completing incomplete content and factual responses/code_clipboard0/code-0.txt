@@ -1,0 +1,19 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+prompt_text = "Although the tiger is a solitary beast and "
+
+try:
+  response = openai.Completion.create(
+    model="text-davinci-002",
+    prompt=prompt_text,
+    temperature=0.20,
+    max_tokens=64,
+    top_p=1,
+  )
+
+  print("Prompt: " + prompt_text)
+  print("\nCompletion: " + response.choices[0].text)
+
+except Exception as e:
+  print(f"Error: {e}")

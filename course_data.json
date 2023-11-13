@@ -1,0 +1,21 @@
+{
+  "course_name": "Using OpenAI API for Natural Language Processing in Python - Learn Interactively",
+  "course_overview": "As consumers rely more and more on search engines and technical software programs to answer their questions, the demand for effective and scalable natural language processing has gone immensely up. OpenAI provides access to the GPT-3 model, which can perform several operations for NLP-related tasks such as summarization, classification, text completion, text insertion, and more. In this course, you’ll learn about the various endpoints of the OpenAI API and how they can be used to accomplish certain NLP tasks. We'll also look at examples of each endpoint to show how they work. By the time you’re done with this course, you’ll be able to work on your own projects using the OpenAI API.",
+  "course_folder": "using openai api for natural language processing in python",
+  "course_lessons": [
+    "0-introduction to the course",
+    "1-openai api overview",
+    "2-get started with the openai api",
+    "3-completions overview",
+    "4-classification",
+    "5-generation",
+    "6-transformation",
+    "7-inserting text",
+    "8-completing incomplete content and factual responses",
+    "9-editing text",
+    "10-embeddings",
+    "11-wrap up",
+    "12-some useful engines"
+  ],
+  "repo_name": ""
+}

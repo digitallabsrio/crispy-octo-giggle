@@ -1,0 +1,18 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+prompt_text = ("Translate this into 1. French, 2. Spanish and 3. Japanese.\n" +
+              "We provide an online learning platform made by developers, created for developers.")
+
+try:
+      response = openai.Completion.create(
+            model="text-davinci-002",
+            prompt=prompt_text,
+            temperature=0,
+            max_tokens=100,
+      )
+      print("Prompt: \n" + prompt_text)
+      print(response.choices[0].text)
+      
+except Exception as e:
+      print(f"Error: {e}")

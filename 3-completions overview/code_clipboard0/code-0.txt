@@ -1,0 +1,13 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+try:
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt="Write a tagline about artificial intelligence.",
+        temperature=0.9
+    )
+    print(response)
+    
+except Exception as e:
+    print(f"Error: {e}")

@@ -1,0 +1,8 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+
+try:
+    print(openai.Model.list())
+except Exception as e:
+    print(f"Error: {e}")

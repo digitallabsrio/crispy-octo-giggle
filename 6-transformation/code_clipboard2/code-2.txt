@@ -1,0 +1,21 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+
+try:
+    prompt_text = ("Convert movie titles into emojis.\n" +
+                "Back to the Future: 👨👴🚗🕒\n" +
+                "Batman: 🤵🦇\n" +
+                "Transformers: 🚗🤖\n" +
+                "Antman: ")
+
+    response = openai.Completion.create(
+        model="text-davinci-002",
+        prompt=prompt_text,
+        temperature=0.9,
+    )
+    print("Prompt: \n" + prompt_text)
+    print(response.choices[0].text)
+
+except Exception as e:
+    print(f"Error: {e}")

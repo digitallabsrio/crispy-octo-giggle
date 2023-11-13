@@ -1,0 +1,15 @@
+import openai
+openai.api_key = "{{SECRET_KEY}}"
+
+try:
+  response = openai.Embedding.create(
+    input="The burger was fantastic!",
+    engine="text-similarity-babbage-001"
+  )
+
+  embedding = response.data[0].embedding
+  print("Embedding: ", embedding)
+  print("Length: ", len(embedding))
+
+except Exception as e:
+  print(f"Error: {e}")

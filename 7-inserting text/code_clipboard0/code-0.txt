@@ -1,0 +1,18 @@
+import openai
+import textwrap
+
+openai.api_key = "{{SECRET_KEY}}"
+
+try:
+  response = openai.Completion.create(
+    model="text-davinci-002",
+    prompt="Educative is a leading online learning platform made by developers, created for developers.",
+    suffix="Educative helps software engineers grow their skill sets and reach their full potential.",
+    max_tokens=260
+  )
+
+  print("Insertion result:")
+  print(textwrap.fill(response.choices[0].text, width=80))
+
+except Exception as e:
+    print(f"Error: {e}")

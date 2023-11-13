@@ -1,0 +1,17 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+
+try:
+  response = openai.Edit.create(
+    model="text-davinci-edit-001",
+    input="The kangaroo carries her baby in her pouch.",
+    instruction="Convert sentence to passive voice",
+    temperature=0,
+    top_p=1
+  )
+
+  print(response)
+
+except Exception as e:
+  print(f"Error: {e}")

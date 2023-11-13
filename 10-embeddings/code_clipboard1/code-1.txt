@@ -1,0 +1,18 @@
+import openai
+from numpy import dot
+
+openai.api_key = "{{SECRET_KEY}}"
+try:
+    response = openai.Embedding.create(
+        input=["The burger was fantastic", "The quick brown fox jumps over the lazy dog"],
+        engine="text-similarity-davinci-001")
+
+    emb_1 = response['data'][0]['embedding']
+    emb_2 = response['data'][1]['embedding']
+
+    # Formula to find the cosine similarity
+    similarity_score = dot(emb_1, emb_2)
+    print(similarity_score)
+
+except Exception as e:
+    print(f"Error: {e}")

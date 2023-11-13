@@ -1,0 +1,23 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+try:
+    prompt_text = ("Classify the sentiment in these tweets:\n"
+                    + "1. \"I enjoy this program\"\n"
+                    + "2. \"I don't like him anymore\"\n"
+                    + "3. \"I can't wait for Halloween!!!\"\n"
+                    + "4. \"I do not hate much jokers\"\n"
+                    + "5. \"I love eating chocolates <3!\"\n"
+                    + "Tweet sentiment ratings:")
+
+    response = openai.Completion.create(
+        model="text-davinci-002",
+        prompt=prompt_text,
+        max_tokens = 60,
+        temperature=0.9
+    )
+    print("Prompt text:\n" + prompt_text)
+    print(response.choices[0].text)
+    
+except Exception as e:
+    print(f"Error: {e}")

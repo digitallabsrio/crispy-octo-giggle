@@ -1,0 +1,41 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+prompt_text=("Q: Who is Batman?\n"+
+            "A: Batman is a fictional comic book character.\n"+
+            "Q: What is torsalplexity?\n"+
+            "A: ?\n"+
+            "Q: What is Devz9?\n"+
+            "A: ?\n"+
+            "Q: Who is George Lucas?\n"+
+            "A: George Lucas is American film director and producer famous for creating Star Wars.\n"+
+            "Q: What is the capital of California?\n"+
+            "A: Sacramento.\n"+
+            "Q: What orbits the Earth?\n"+
+            "A: The Moon.\n"+
+            "Q: Who is Fred Rickerson?\n"+
+            "A: ?\n"+
+            "Q: What is an atom?\n"+
+            "A: An atom is a tiny particle that makes up everything.\n"+
+            "Q: Who is Alvan Muntz?\n"+
+            "A: ?\n"+
+            "Q: What is Kozar-09?\n"+
+            "A: ?\n"+
+            "Q: How many moons does Mars have?\n"+
+            "A: Two, Phobos and Deimos.\n"+
+            "Q: what is the meaning of xyzz?\n"+
+            "A:")
+
+try:
+  response = openai.Completion.create(
+    model="text-davinci-002",
+    prompt=prompt_text,
+    temperature=0,
+    max_tokens=64,
+  )
+  
+  print("Prompt: \n" + prompt_text)
+  print("Response: \n" + response.choices[0].text)
+
+except Exception as e:
+  print(f"Error: {e}")

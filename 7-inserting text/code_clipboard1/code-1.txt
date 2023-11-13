@@ -1,0 +1,22 @@
+import openai
+import textwrap
+
+openai.api_key = "{{SECRET_KEY}}"
+
+prompt_prefix = "How to lose weight:\n1. Do not skip breakfast."
+prompt_suffix = "12. Plan your meals"
+try:
+  response = openai.Completion.create(
+    model="text-davinci-002",
+    prompt=prompt_prefix,
+    suffix=prompt_suffix,
+    max_tokens=400
+  )
+
+  print("\nPrefix:\n", prompt_prefix)
+  print("\nInsertion result:")
+  print(textwrap.fill(response.choices[0].text, width=80))
+  print("\nSuffix:\n", prompt_suffix)
+
+except Exception as e:
+    print(f"Error: {e}")

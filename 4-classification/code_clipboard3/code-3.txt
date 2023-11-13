@@ -1,0 +1,18 @@
+import openai
+
+openai.api_key = "{{SECRET_KEY}}"
+prompt_text = "The following is a list of companies and the categories they fall into:\n\nApple, Facebook, Educative\n\nApple\nCategory:"
+
+try:
+  response = openai.Completion.create(
+    model="text-davinci-002",
+    prompt=prompt_text,
+    temperature=0,
+    max_tokens=64,
+    top_p=1.0,
+  )
+
+  print("Prompt: ", prompt_text, response.choices[0].text)
+
+except Exception as e:
+    print(f"Error: {e}")
